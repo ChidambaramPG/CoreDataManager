@@ -20,32 +20,25 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="page-title-box">
-                                    <h4 class="page-title">Dashboard</h4>
+                                    <h4 class="page-title">{{headerizeText(getActivePage)}} </h4>
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item active">Welcome to Agroxa Dashboard</li>
+                                        <li class="breadcrumb-item active" v-if="getActivePage=='dashboard'">An overvew of the latest additons and changes</li>
+                                        <li class="breadcrumb-item active" v-if="getActivePage=='cards'">All availble cads. Sort, filter, add tags and create groups</li>
+                                        <li class="breadcrumb-item active" v-if="getActivePage=='new-card'">Add new card. Upload Image. Add tags.</li>
                                     </ol>
-            
-                                    <div class="state-information d-none d-sm-block">
-                                        <div class="state-graph">
-                                            <div id="header-chart-1"></div>
-                                            <div class="info">Balance $ 2,317</div>
-                                        </div>
-                                        <div class="state-graph">
-                                            <div id="header-chart-2"></div>
-                                            <div class="info">Item Sold 1230</div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
                         <!-- end row -->
 
                         <div class="page-content-wrapper">
-                            <cards-stats/>
+                            <!-- <cards-stats/> -->
                             <!-- end row -->
                             
                             <latest-cards v-if="getActivePage == 'dashboard'"/>
                             <cards-table v-else-if="getActivePage == 'cards'"/>
+                            <add-new-card v-else-if="getActivePage == 'new-card'"/>
+                            <lists-table v-else-if="getActivePage == 'lists'"/>
         
                         </div>
                         <!-- end page content-->
@@ -63,22 +56,32 @@
 import store from "@/store/index.js";
 import TopBar from "@/components/common/TopBar.vue";
 import SideBar from "@/components/common/SideBar.vue";
-import CardsStats from "@/components/dashboard/CardsStats.vue";
+// import CardsStats from "@/components/dashboard/CardsStats.vue";
 import LatestCards from "@/components/dashboard/LatestCards.vue";
 import CardsTable from "@/components/dashboard/CardsTable.vue";
+import AddNewCard from "@/components/cards/AddNewCard.vue";
+import ListsTable from "@/components/lists/ListsTable.vue";
 
 export default{
 	name:'Dashboard',
 	components:{
         TopBar,
         SideBar,
-        CardsStats,
+        // CardsStats,
         LatestCards,
-        CardsTable
+        CardsTable,
+        AddNewCard,
+        ListsTable
     },
     computed:{
         getActivePage(){
             return store.state.activePage
+        }
+    },
+    methods:{
+        headerizeText(str){
+            let header = str.split('-').join(" ");
+            return  header.charAt(0).toUpperCase() + header.slice(1);
         }
     }
 };

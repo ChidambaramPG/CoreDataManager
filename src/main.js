@@ -5,6 +5,8 @@ import router from "./router";
 import store from "./store";
 import "./registerServiceWorker";
 import firebase from "firebase";
+import VueSweetalert2 from 'vue-sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
 
 let app ="";
 var firebaseConfig = {
@@ -23,6 +25,7 @@ firebase.auth().onAuthStateChanged(() => {
   if (!app) {
     Vue.config.productionTip = false;
     Vue.config.performance = true;
+    Vue.use(VueSweetalert2);
     app = new Vue({
       router,
       store,

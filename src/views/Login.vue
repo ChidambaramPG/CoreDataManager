@@ -1,3 +1,4 @@
+/* eslint-disable */
 <template>
 	<div>
 		<div class="account-pages"></div>
@@ -5,8 +6,10 @@
 		<div class="wrapper-page">
 	        <div class="card">
 	            <div class="card-body">
-	                <h3 class="text-center m-0">
-	                    <a href="index.html" class="logo logo-admin"><img src="assets/images/logo.png" height="30" alt="logo"></a>
+	                <h3 class="text-center">
+	                     <a href="index.html" class="logo">
+							<span style="font-size:50px;"><span style="font-size:50px;">C</span>CD</span>
+						</a>
 	                </h3>
 	                <div class="p-3">
 	                    <h4 class="text-muted font-18 m-b-5 text-center">Welcome Back !</h4>
@@ -48,7 +51,7 @@
     
 </template>
 <script>
-// import firebase from "firebase";
+import firebase from "firebase";
 import router from "../router/index.js";
 export default {
     name: "Login",
@@ -63,7 +66,35 @@ export default {
     },
     methods: {
 	    loginAdmin() {
-	     	router.push("/dashboard");
+			if(this.username == '' || this.password == ''){
+				// alert('email or password is missing')
+				this.errorMessage = 'email or password is missing';
+				this.loading = false;
+
+				}else{
+				// console.log('signing in')
+				firebase.auth().signInWithEmailAndPassword(this.username,this.password)
+				.then(() => {
+					// console.log(resp)
+					this.loading = false;
+					router.push("/dashboard");
+				})
+				.catch( error => {
+					this.loading = false;
+
+					let errorMessage = error.message;
+					// this.errorMessage = errorMessage;    
+					
+					this.$swal.fire({
+						icon: 'error',
+						title: 'Oops...',
+						text: errorMessage,
+						footer: '<a href>Signup if you are new user</a>'
+					})
+
+				})
+				}
+	     	
 	    }
 	  }
 };

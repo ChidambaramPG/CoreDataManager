@@ -3968,7 +3968,7 @@ find-up@^4.0.0, find-up@^4.1.0:
     locate-path "^5.0.0"
     path-exists "^4.0.0"
 
-firebase@^7.7.0:
+firebase@7.7.0:
   version "7.7.0"
   resolved "https://registry.yarnpkg.com/firebase/-/firebase-7.7.0.tgz#442c056ec6e80fd1d8550032c50c9599c213175c"
   integrity sha512-rAjobH47rAYMyS4jiJqBATa5fNTqUTHNHvLzoMGzWNbmYqBzKyCk7EySRJek/+ZhfgJRYDfJxIActCTZ1jyN1Q==
@@ -6334,6 +6334,11 @@ pako@~1.0.5:
   resolved "https://registry.yarnpkg.com/pako/-/pako-1.0.10.tgz#4328badb5086a426aa90f541977d4955da5c9732"
   integrity sha512-0DTvPVU3ed8+HNXOu5Bs+o//Mbdj9VNQMUOe9oKCwh8l0GNwpTDMKCWbRjgtD291AWnkAgkqA/LOnQS8AmS1tw==
 
+papaparse@^5.1.1:
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/papaparse/-/papaparse-5.1.1.tgz#1da66a039f80e2db43a1226b0bf44106451e9a2d"
+  integrity sha512-KPkW4GNQxunmYTeJIjHFrvilcNuHBWrfgbyvmagEmfGOA4hnP1WIkPbv4yABhj1Nam3as4w+7MBiI27BntwqVg==
+
 parallel-transform@^1.1.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/parallel-transform/-/parallel-transform-1.2.0.tgz#9049ca37d6cb2182c3b1d2c720be94d14a5814fc"
@@ -8118,6 +8123,11 @@ svgo@^1.0.0:
     unquote "~1.1.1"
     util.promisify "~1.0.0"
 
+sweetalert2@9.x:
+  version "9.7.0"
+  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-9.7.0.tgz#4a3c4c9e360169ebcb70c2d648cc47b8f3d6e314"
+  integrity sha512-oGGj9hzl/HFx5I33VQyuYCIr3O1HBpQWB10MGYgzbc/3YWKaViH26U1eqq1N+5wtNlviscRBu+4vhSC/237THw==
+
 table@^5.2.3:
   version "5.4.6"
   resolved "https://registry.yarnpkg.com/table/-/table-5.4.6.tgz#1292d19500ce3f86053b05f0e8e7e4a3bb21079e"
@@ -8641,6 +8651,13 @@ vue-style-loader@^4.1.0:
   dependencies:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
+
+vue-sweetalert2@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/vue-sweetalert2/-/vue-sweetalert2-3.0.1.tgz#0fd91795c9db454083579f7c98b11c47b2dded9c"
+  integrity sha512-njjJeqvwX/lQSVRcteafD/0VV5C66RT5awbZELfet93o71+HnYrQY4n3eU8DB8WYaSBvCKtgaoEjlk3lqHYM4w==
+  dependencies:
+    sweetalert2 "9.x"
 
 vue-template-compiler@^2.6.10:
   version "2.6.11"
